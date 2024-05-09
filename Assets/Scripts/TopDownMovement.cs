@@ -5,7 +5,8 @@ public class TopDownMovement : MonoBehaviour
 {
     private TopDownController controller;
     private Rigidbody2D movementRigidbody;
-    private SpriteRenderer spriteRenderer;
+
+    [SerializeField] private Camera follwaCamera;
 
     private Vector2 movementDirection = Vector2.zero; // 이동 관련 벡터값이 들어갈 변수
     private float lookDirection = 0f; // 방향 관련 실수값이 들어갈 변수
@@ -14,7 +15,6 @@ public class TopDownMovement : MonoBehaviour
     {
         controller = GetComponent<TopDownController>();
         movementRigidbody = GetComponent<Rigidbody2D>();
-        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
     }
 
     private void Start()
@@ -35,8 +35,8 @@ public class TopDownMovement : MonoBehaviour
 
     private void ApplyLookDirection(float lookDirection) // 주시 방향을 확정시키는 메서드
     {
-        if (lookDirection < 0) spriteRenderer.flipX = true;
-        else if (lookDirection > 0) spriteRenderer.flipX = false;
+        if (lookDirection < 0) transform.localScale = new Vector3(-0.6f, 0.6f, 1f);
+        else if (lookDirection > 0) transform.localScale = new Vector3(0.6f, 0.6f, 1f);
     }
 
     private void Move(Vector2 dirction) // 이동 관련 키 입력으로 변환한 방향 값을 저장하는 메서드
@@ -49,5 +49,6 @@ public class TopDownMovement : MonoBehaviour
     {
         direction = direction * 5;
         movementRigidbody.velocity = direction;
+        follwaCamera.transform.position = new Vector3(transform.position.x, transform.position.y, -10f);
     }
 }
