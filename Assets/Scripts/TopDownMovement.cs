@@ -31,7 +31,7 @@ public class TopDownMovement : MonoBehaviour
 
     private void LateUpdate()
     {
-        followCamera.transform.position = transform.position + new Vector3(0f, 0f, -10f);
+        ApplyCameraMovement();
     }
 
     private void Look(Vector2 direction) // 주시 관련 키 입력으로 변환한 실수값을 저장하는 메서드
@@ -55,5 +55,10 @@ public class TopDownMovement : MonoBehaviour
     {
         direction = direction * 5;
         movementRigidbody.velocity = direction;
+    }
+
+    private void ApplyCameraMovement() // 카메라 이동 확정 메서드
+    {
+        followCamera.transform.position = transform.position + new Vector3(0f, 0f, -10f);
     }
 }
