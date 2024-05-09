@@ -6,7 +6,7 @@ public class TopDownMovement : MonoBehaviour
     private TopDownController controller;
     private Rigidbody2D movementRigidbody;
 
-    [SerializeField] private Camera followCamera;
+    [SerializeField] private Camera followCamera; // 다른 클래스에서는 사용하지 않지만 인스펙터 창에서 연결시켜줘아 하므로 [SerializeFild] private 사용
 
     private Vector2 movementDirection = Vector2.zero; // 이동 관련 벡터값이 들어갈 변수
     private float lookDirection = 0f; // 방향 관련 실수값이 들어갈 변수
@@ -15,6 +15,7 @@ public class TopDownMovement : MonoBehaviour
     {
         controller = GetComponent<TopDownController>();
         movementRigidbody = GetComponent<Rigidbody2D>();
+        followCamera.transform.position = transform.position + new Vector3(0f, 0f, -10f);
     }
 
     private void Start()
@@ -49,6 +50,6 @@ public class TopDownMovement : MonoBehaviour
     {
         direction = direction * 5;
         movementRigidbody.velocity = direction;
-        followCamera.transform.position = new Vector3(transform.position.x, transform.position.y, -10f);
+        followCamera.transform.position = transform.position + new Vector3(0f, 0f, -10f);
     }
 }
