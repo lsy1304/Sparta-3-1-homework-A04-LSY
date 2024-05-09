@@ -6,7 +6,7 @@ public class TopDownMovement : MonoBehaviour
     private TopDownController controller;
     private Rigidbody2D movementRigidbody;
 
-    [SerializeField] private Camera follwaCamera;
+    [SerializeField] private Camera followCamera;
 
     private Vector2 movementDirection = Vector2.zero; // 이동 관련 벡터값이 들어갈 변수
     private float lookDirection = 0f; // 방향 관련 실수값이 들어갈 변수
@@ -49,6 +49,6 @@ public class TopDownMovement : MonoBehaviour
     {
         direction = direction * 5;
         movementRigidbody.velocity = direction;
-        follwaCamera.transform.position = new Vector3(transform.position.x, transform.position.y, -10f);
+        followCamera.transform.position = new Vector3(transform.position.x, transform.position.y, -10f);
     }
 }
