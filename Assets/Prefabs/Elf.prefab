@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6533867939482154292}
   - component: {fileID: 144132709400936848}
-  - component: {fileID: 491699954951853831}
+  - component: {fileID: 5012786275872311704}
   m_Layer: 0
   m_Name: Elf
   m_TagString: Untagged
@@ -85,7 +85,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &491699954951853831
+--- !u!95 &5012786275872311704
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
