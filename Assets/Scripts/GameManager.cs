@@ -1,20 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    
-
+    public GameObject[] prefabList;
+    public GameObject player;
+    public TextMeshProUGUI playerName;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        player = Instantiate(prefabList[(int)DataManager.instance.currentCharaType]);
+        player.transform.SetParent(GameObject.Find("Player").transform);
+        player.transform.localPosition = Vector3.zero;
+        playerName.text = DataManager.instance.currentPlayerName;
+        Debug.Log(playerName.text);
     }
 }

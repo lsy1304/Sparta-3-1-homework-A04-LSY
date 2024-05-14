@@ -294,6 +294,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputName: {fileID: 527608913}
+  sprites:
+  - {fileID: 21300000, guid: 2f4a5899f3b584c46bed5b522e1dd8e7, type: 3}
+  - {fileID: 21300000, guid: 94b4a8b59d4ff3342bf614da72ca0d41, type: 3}
+  image: {fileID: 999453381}
 --- !u!1 &395758936
 GameObject:
   m_ObjectHideFlags: 0
@@ -1026,7 +1030,6 @@ GameObject:
   - component: {fileID: 925121627}
   - component: {fileID: 925121626}
   - component: {fileID: 925121625}
-  - component: {fileID: 925121624}
   m_Layer: 5
   m_Name: Button (2)
   m_TagString: Untagged
@@ -1054,20 +1057,6 @@ RectTransform:
   m_AnchoredPosition: {x: 226, y: 4.5}
   m_SizeDelta: {x: 238.4, y: 315.15}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &925121624
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 925121622}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e62709cf74267646819bc21e8b8fe0d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  charaBtn: {fileID: 1329525821}
-  charaType: 1
 --- !u!114 &925121625
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1112,14 +1101,26 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 925121624}
-        m_TargetAssemblyTypeName: SelectCharacter, Assembly-CSharp
-        m_MethodName: OnClick
-        m_Mode: 1
+      - m_Target: {fileID: 767704481}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 329758314}
+        m_TargetAssemblyTypeName: NameInputField, Assembly-CSharp
+        m_MethodName: OnClickBtn
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -1383,7 +1384,6 @@ GameObject:
   - component: {fileID: 1329525825}
   - component: {fileID: 1329525824}
   - component: {fileID: 1329525823}
-  - component: {fileID: 1329525826}
   m_Layer: 5
   m_Name: CharaBtn
   m_TagString: Untagged
@@ -1455,17 +1455,17 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1329525826}
-        m_TargetAssemblyTypeName: ReselectCharacter, Assembly-CSharp
-        m_MethodName: OnClick
-        m_Mode: 1
+      - m_Target: {fileID: 767704481}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &1329525824
 MonoBehaviour:
@@ -1505,22 +1505,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1329525821}
   m_CullTransparentMesh: 1
---- !u!114 &1329525826
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1329525821}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57fc31a897ed6184795aa1d45d06ec4a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sprites:
-  - {fileID: 21300000, guid: 2f4a5899f3b584c46bed5b522e1dd8e7, type: 3}
-  - {fileID: 21300000, guid: 94b4a8b59d4ff3342bf614da72ca0d41, type: 3}
-  charaSelectUI: {fileID: 767704481}
 --- !u!1 &1562841181
 GameObject:
   m_ObjectHideFlags: 0
@@ -1625,7 +1609,6 @@ GameObject:
   - component: {fileID: 1626738013}
   - component: {fileID: 1626738012}
   - component: {fileID: 1626738011}
-  - component: {fileID: 1626738010}
   m_Layer: 5
   m_Name: Button (1)
   m_TagString: Untagged
@@ -1653,20 +1636,6 @@ RectTransform:
   m_AnchoredPosition: {x: -260, y: 4.5}
   m_SizeDelta: {x: 238.4, y: 315.15}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1626738010
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1626738008}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e62709cf74267646819bc21e8b8fe0d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  charaBtn: {fileID: 1329525821}
-  charaType: 0
 --- !u!114 &1626738011
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1711,10 +1680,22 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1626738010}
-        m_TargetAssemblyTypeName: SelectCharacter, Assembly-CSharp
-        m_MethodName: OnClick
-        m_Mode: 1
+      - m_Target: {fileID: 767704481}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 329758314}
+        m_TargetAssemblyTypeName: NameInputField, Assembly-CSharp
+        m_MethodName: OnClickBtn
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

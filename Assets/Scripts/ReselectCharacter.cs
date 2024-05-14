@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class ReselectCharacter : MonoBehaviour
 {
     [SerializeField] private Sprite[] sprites;
-    [SerializeField] private GameObject charaSelectUI;
 
     private Image spriteRenderer;
     private bool isSelected = false; // 첫 진입 방지
@@ -20,11 +19,5 @@ public class ReselectCharacter : MonoBehaviour
     {
         if(isSelected) spriteRenderer.sprite = sprites[(int)DataManager.instance.currentCharaType]; 
         else isSelected = true; // 첫 값은 null이므로 무시
-    }
-
-    public void OnClick()
-    {
-        charaSelectUI.SetActive(true);
-        gameObject.SetActive(false);
     }
 }
