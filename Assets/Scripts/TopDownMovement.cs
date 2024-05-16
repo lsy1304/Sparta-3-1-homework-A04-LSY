@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class TopDownMovement : MonoBehaviour
 {
@@ -10,7 +9,7 @@ public class TopDownMovement : MonoBehaviour
     [SerializeField] private Camera followCamera; // 다른 클래스에서는 사용하지 않지만 인스펙터 창에서 연결시켜줘아 하므로 [SerializeFild] private 사용
 
     private Vector2 movementDirection = Vector2.zero; // 이동 관련 벡터값이 들어갈 변수
-    private float lookDirection = 0f; // 방향 관련 실수값이 들어갈 변수
+    private Vector2 lookDirection = Vector2.zero; // 방향 관련 실수값이 들어갈 변수
 
     private void Start()
     {
@@ -35,12 +34,13 @@ public class TopDownMovement : MonoBehaviour
 
     private void Look(Vector2 direction) // 주시 관련 키 입력으로 변환한 실수값을 저장하는 메서드
     {
-        lookDirection = direction.x;
+        lookDirection = direction;
     }
 
-    private void ApplyLookDirection(float lookDirection) // 주시 방향을 확정시키는 메서드
+    private void ApplyLookDirection(Vector2 lookDirection) // 주시 방향을 확정시키는 메서드
     {
-        spriteRenderer.flipX = lookDirection < 0;
+        float rotZ = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg; // 각도를 찾는 방법
+        spriteRenderer.flipX = Mathf.Abs(rotZ) > 90;
         //Debug.Log(lookDirection < 0);
     }
 
